@@ -1,0 +1,326 @@
+
+
+.mainFxmlClass {
+-fx-background-color: linear-gradient(to bottom,derive(black,15%),derive(black,15%));
+
+}
+
+/*.label{
+    -fx-text-fill: white;
+}*/
+
+.text-field{
+    -fx-background-color: black;
+    /*-fx-text-inner-color:red;*/
+    -fx-text-fill:white;
+    -fx-border-color: grey;
+    -fx-font-size: 15px;
+}
+
+.text-field-insertmode{
+    -fx-background-color: black;
+    /*-fx-text-inner-color:red;*/
+    -fx-text-fill:white;
+    -fx-border-color: grey;
+    -fx-font-size: 12px;
+}
+.text-field-insertname{
+    -fx-background-color: black;
+    /*-fx-text-inner-color:red;*/
+    -fx-text-fill:white;
+    -fx-border-color: grey;
+    -fx-font-family:"verdana";
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+.text-field-insertname:focused{
+    -fx-background-color: linear-gradient(darkgray,grey);
+    /*-fx-text-inner-color:red;*/
+    -fx-font-family:"verdana";
+    -fx-text-fill:black;
+    -fx-font-weight: bold;
+    -fx-border-color: grey;
+    -fx-font-size: 15px;
+}
+
+
+.text-area{
+    -fx-control-inner-background:black;
+    -fx-background-color: black;
+    -fx-border-color: grey;
+     -fx-text-fill:white;
+     -fx-font-size: 15px;
+}
+.text-area-insertmode{
+    -fx-control-inner-background:black;
+    -fx-background-color: black;
+    -fx-border-color: grey;
+     -fx-text-fill:white;
+     -fx-font-size: 12px;
+}
+.text-area-patemode{
+    -fx-control-inner-background:black;
+    -fx-background-color: black;
+    -fx-border-color: grey;
+     -fx-text-fill: #edff00;
+     -fx-font-size: 15px;
+     /*-fx-font-weight: bold;*/
+     -fx-font-family:"HP Simplified";  /* Goudy Old Style ,Gill Sans MT,HP Simplified */
+}
+
+.combo-box{
+    -fx-background-color: black;
+    -fx-border-color: grey;
+}
+.combo-box .arrow{
+    -fx-background-color: white;
+}
+.combo-box .cell{
+    -fx-text-fill: white;
+    -fx-font:16px "Arial";
+    -fx-background-color: black;
+}
+
+/*.tab-pane .tab{
+    -fx-background-color: darkgray;
+    
+}*/
+.tab-pane{
+    -fx-tab-min-width: 150px;
+    -fx-tab-min-height: 30px;
+    -fx-tab-max-width: 150px;
+    -fx-tab-max-height: 30px;
+    
+}
+.tab-pane *.tab-header-area *.tab-header-background{
+    -fx-background-color: linear-gradient(to right,#1dbbdd44, #93f9b944);
+    
+}
+.tab{
+    -fx-font-family:"Jokerman";
+    -fx-font-size:15;
+    -fx-background-color: black;
+}
+.tab:selected{
+    -fx-background-color: darkgray;
+}
+.tab .tab-label{
+    -fx-text-fill: white;
+}
+.tab:selected .tab-label{
+    -fx-text-fill: black;
+}
+
+.tab-pane_browser .tab{
+    -fx-font-family:"Segoe Print";
+    -fx-font-size:15;
+    -fx-background-color: black;
+}
+.tab-pane_browser .tab:selected{
+    -fx-background-color: darkgray;
+    -fx-alignment:top_center;
+    -fx-padding:0 0 5 0;
+}
+.tab-pane_browser .tab .tab-label{
+    -fx-text-fill: white;
+}
+
+.tab-pane_browser .tab .tab-container{
+    -fx-background-color: linear-gradient(#2A1956,#6A47AF);
+    -fx-alignment:top_center;
+    -fx-background-insets:0 0 -5 0;
+}
+.tab-pane_browser .tab:selected .tab-container{
+    -fx-background-color: linear-gradient(#D5E6A9,yellow);
+    -fx-alignment:top_center;
+    -fx-background-insets:0 0 -5 0;
+}
+.tab-pane_browser .tab .tab-container .tab-close-button:hover{
+    -fx-background-color: red;
+}
+.tab-pane_browser .tab:selected .tab-label{
+    -fx-text-fill: #0B0B3B;
+}
+.tab-pane_browser{
+    -fx-tab-min-width: 100px;
+    -fx-tab-min-height: 15px;
+    -fx-tab-max-width: 150px;
+    -fx-tab-max-height: 20px;
+}
+.tab-pane_browser *.tab-header-area *.tab-header-background{
+    -fx-background-color: linear-gradient(to right,#1dbbdd44, #93f9b944);
+}
+
+
+.button{
+    -fx-background-color: linear-gradient(grey,darkgrey);
+}
+.button:hover{
+    -fx-background-color: linear-gradient(lightyellow,darkgrey);
+}
+
+
+.table-view{
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .filler{
+    -fx-background-color: transparent;
+}
+.table-view .corner{
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom,black,black,black, darkgray);
+}
+.table-view .column-header{
+    -fx-background-color: transparent;
+    /*-fx-size:20pt;  size of header column*/
+    -fx-font-size:12pt; /*size of text in header*/
+     -fx-border-color: white;/*header nu maatram border*/
+     -fx-text-background-color: linear-gradient(grey,white);/*header nte text nu color nalkaan , .label kodutathu kondu ithu varilla*/
+     -fx-font-style:italic; /*text ne italic aakan*/
+     -fx-font-weight:bold;
+}
+.table-view .column-header .text{
+    -fx-underline: true;  /*header le text nu underline kodukkan*/
+}
+.table-view .column-header:hover {
+    -fx-background-color: linear-gradient(grey,white);
+    -fx-text-background-color:linear-gradient(to bottom,black,black,black, darkgray);/*column header il mouse kondu vekkumbol*/
+}
+.table-view .table-cell{
+    -fx-background-color: transparent;
+}
+
+.table-row-cell{
+    /*-fx-cell-size: 20px;*/
+    /*-fx-text-background-color:derive(yellow,-30%);*/
+    -fx-font-weight:bold;
+    -fx-font-size: 9pt;
+}
+ 
+/*.table-row-cell:highlighted{
+    -fx-background-color: #81c483;
+    -fx-background-radius: 15px;
+}
+.table-row-cell:selected{
+    -fx-background-color: violet;  ithu selected row nte background color  
+    -fx-text-background-color:lightgreen;
+    -fx-background-radius: 15px;
+}*/
+/*.table-row-cell:hover{
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color:derive(red,-30%);
+}*/
+
+.table-row-cell:odd{
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color:lightyellow; /* ithu text nu color kodukkaan , ithu evde kodotathu kondu :odd:hover :odd:selected  etc... ennu cherkanam  */
+}
+.table-row-cell:odd:hover{
+    -fx-background-color: linear-gradient(grey,white);
+    -fx-text-background-color:derive(red,-30%);
+}
+.table-row-cell:odd:selected{
+    -fx-background-color: linear-gradient(to bottom,black 90%, darkgray); /* ithu selected row nte background color  */
+    -fx-text-background-color:linear-gradient(yellow,derive(yellow,-30%));
+    -fx-background-radius: 15px;
+}
+.table-row-cell:even{
+    -fx-background-color: #1dbbdd11;
+    -fx-text-background-color:white;
+}
+.table-row-cell:even:hover{
+    -fx-background-color: linear-gradient(grey,white);
+    -fx-text-background-color:derive(red,-30%);
+}
+.table-row-cell:even:selected{
+    -fx-background-color: linear-gradient(to bottom,black 90%, darkgray); /* ithu selected row nte background color  */
+    -fx-text-background-color:linear-gradient(yellow,derive(yellow,-30%));
+    -fx-background-radius: 15px;
+}
+
+
+/*scrollbars*/
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background{
+    -fx-background-color: transparent;
+}
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button{
+    -fx-opacity: 0;
+    -fx-padding: 0;
+}
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: linear-gradient(to bottom,#1dbbdd44, #93f9b944);
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb{
+    -fx-background-color: linear-gradient(to right,#1dbbdd44, #93f9b944);
+}
+
+ 
+ .context-menu{
+    -fx-background-color: linear-gradient(to bottom,darkgrey,darkgray); /*  #93f9b944 */
+    -fx-min-width:150;
+    -fx-min-height:50;
+}
+.context-menu .label{
+    -fx-text-fill: black;
+    -fx-font-weight:bold;
+}
+.menu-item:focused{
+    -fx-background-color: linear-gradient(to bottom,#1dbbdd44, lightgreen);
+}
+.menu-item:focused .label{
+    -fx-text-fill: royalblue;
+}
+
+.list-view{
+	-fx-background-color:linear-gradient(#938C9E,grey);
+	/* -fx-control-inner-background:yellow;    ithu full oru color kodukkaan*/
+}
+
+.list-cell:odd{
+	-fx-background-color:#5C5375;
+	-fx-text-fill:white;
+}
+.list-cell:even{
+	-fx-background-color:#644C96;
+	-fx-text-fill:white;
+}
+.list-cell:odd:hover{
+	-fx-background-color:linear-gradient(#938C9E,#C2CDA5);
+}
+.list-cell:even:hover{
+	-fx-background-color:linear-gradient(#938C9E,#C2CDA5);
+}
+
+.jfx-progress-bar-success:indeterminate .bar{
+	-fx-background-color:skyblue;
+}
+.jfx-progress-bar-success:determinate .bar{
+	-fx-background-color:#00FF00;
+}
+.jfx-progress-bar-error:indeterminate .bar{
+	-fx-background-color:red;
+}
+.jfx-progress-bar-error:indeterminate .track{
+	-fx-background-color:red;
+}
+.jfx-progress-bar-error:determinate .bar{
+	-fx-background-color:red;
+}
+
+.check-box .box{
+	-fx-background-radius:50;
+	-fx-background-color:linear-gradient(lightyellow,grey,lightyellow);
+}
+/* 
+.check-box .box .mark{
+	-fx-background-color:linear-gradient(black,brown);
+}
+ * */

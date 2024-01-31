@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="560.0" prefWidth="650.0" style="-fx-border-color: grey; -fx-border-width: 2;" styleClass="mainFxmlClass" stylesheets="@previewandedit.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ar.fxmlcontroller.PreviewAndEditController">
+	<children>
+		<VBox layoutX="50.0" layoutY="64.0" prefHeight="475.0" prefWidth="550.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="64.0">
+			<children>
+				<HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: grey;">
+					<children>
+						<JFXTextField fx:id="textDependency" focusColor="#d4fd0b" labelFloat="true" prefHeight="30.0" prefWidth="500.0" promptText="Dependency" style="-fx-text-fill: white; -fx-prompt-text-fill: derive(red,60%);" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</JFXTextField>
+						<VBox prefHeight="25.0" prefWidth="30.0">
+							<children>
+								<AnchorPane>
+									<children>
+										<JFXButton fx:id="editBarIcon" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#editBarIconAction" prefHeight="15.0" prefWidth="15.0" text="">
+											<graphic>
+												<FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="15" wrappingWidth="12.0" />
+											</graphic>
+										</JFXButton>
+										<JFXButton fx:id="closeBarIcon" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#closeBarIconAction" prefHeight="15.0" prefWidth="15.0" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#c4d456" glyphName="CLOSE" size="15" />
+											</graphic>
+										</JFXButton>
+									</children>
+								</AnchorPane>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: grey;">
+					<children>
+						<JFXTextField fx:id="textGroupId" focusColor="#d4fd0b" labelFloat="true" prefHeight="30.0" prefWidth="550.0" promptText="GroupId" style="-fx-text-fill: white; -fx-prompt-text-fill: derive(red,60%);" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</JFXTextField>
+					</children>
+				</HBox>
+				<HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: grey;">
+					<children>
+						<JFXTextField fx:id="textArtifactId" focusColor="#d4fd0b" labelFloat="true" prefHeight="30.0" prefWidth="550.0" promptText="ArtifactId" style="-fx-text-fill: white; -fx-prompt-text-fill: derive(red,60%);" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</JFXTextField>
+					</children>
+				</HBox>
+				<HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="20.0" style="-fx-border-color: grey;">
+					<children>
+						<JFXTextField fx:id="textVersion" focusColor="#d4fd0b" labelFloat="true" prefHeight="30.0" prefWidth="100.0" promptText="Version" style="-fx-text-fill: white; -fx-prompt-text-fill: derive(red,60%);" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</JFXTextField>
+						<JFXComboBox fx:id="textScope" focusColor="#d4fd0b" labelFloat="true" minHeight="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Scope" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></JFXComboBox>
+						<JFXButton fx:id="scopeClear" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#scopeClearAction" prefHeight="30.0" prefWidth="20.0" text="">
+							<graphic>
+								<FontAwesomeIconView fill="#c4d456" glyphName="REMOVE" size="15" />
+							</graphic>
+						</JFXButton>
+						<JFXComboBox fx:id="textOptional" focusColor="#d4fd0b" labelFloat="true" minHeight="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Optional" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS" />
+						<JFXButton fx:id="optionalClear" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#optionalClearAction" prefHeight="30.0" prefWidth="20.0" text="">
+							<graphic>
+								<FontAwesomeIconView fill="#c4d456" glyphName="CLOSE" size="15" />
+							</graphic>
+						</JFXButton>
+					</children>
+				</HBox>
+				<HBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="250.0" style="-fx-border-color: grey;">
+					<children>
+						<JFXTextArea fx:id="textDescription" focusColor="#d4fd0b" labelFloat="true" prefHeight="80.0" prefWidth="550.0" promptText="Description" style="-fx-text-fill: white; -fx-prompt-text-fill: derive(red,60%);" unFocusColor="#ff01bb" HBox.hgrow="ALWAYS">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+							<padding>
+								<Insets bottom="5.0" />
+							</padding>
+						</JFXTextArea>
+					</children>
+				</HBox>
+				<HBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: grey;">
+					<children>
+						<JFXTextArea fx:id="textPOM" focusColor="#edff00" labelFloat="true" prefWidth="500.0" HBox.hgrow="ALWAYS">
+							<font>
+								<Font size="14.0" />
+							</font>
+						</JFXTextArea>
+						<VBox prefHeight="186.0" prefWidth="45.0" spacing="20.0">
+							<children>
+								<JFXButton fx:id="refreshIcon" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#refreshIcon" prefHeight="50.0" prefWidth="50.0" text="">
+									<graphic>
+										<FontAwesomeIconView fill="#c4d456" glyphName="REFRESH" size="30" />
+									</graphic>
+								</JFXButton>
+								<JFXButton fx:id="copyIcon" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#copyAction" prefHeight="50.0" prefWidth="50.0" text="">
+									<graphic>
+										<FontAwesomeIconView fill="#c4d456" glyphName="COPY" size="30" />
+									</graphic>
+								</JFXButton>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<HBox alignment="CENTER" spacing="40.0">
+					<children>
+						<JFXButton fx:id="saveButton" onAction="#saveButtonAction" prefHeight="40.0" prefWidth="130.0" ripplerFill="#0057ff" style="-fx-background-color: linear-gradient(to bottom,#1dbbdd44,lightyellow,lightblue, #93f9b944);" text="SAVE" textFill="#ed3333">
+							<font>
+								<Font name="System Bold" size="16.0" />
+							</font>
+						</JFXButton>
+						<JFXButton onAction="#cancelButtonAction" prefHeight="40.0" prefWidth="130.0" ripplerFill="#0057ff" style="-fx-background-color: linear-gradient(to bottom,#1dbbdd44,lightgrey,lightblue, #93f9b944);" text="CANCEL" textFill="#ed3333">
+							<font>
+								<Font name="System Bold" size="16.0" />
+							</font>
+						</JFXButton>
+					</children>
+				</HBox>
+			</children>
+		</VBox>
+		<Label fx:id="labelHeading" alignment="CENTER" layoutY="30.0" text="DEPENDENCY PREVIEW" textFill="#d7c3c3" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+			<font>
+				<Font name="Bodoni MT Bold" size="24.0" />
+			</font>
+		</Label>
+		<HBox fx:id="headBar" alignment="TOP_RIGHT" layoutX="-12.0" layoutY="-36.0" prefHeight="30.0" prefWidth="650.0" style="-fx-background-color: linear-gradient(black, derive(black,40%),black);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<children>
+				<JFXButton alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancelButtonAction" prefHeight="25.0" prefWidth="30.0" text="">
+					<graphic>
+						<FontAwesomeIconView fill="#d05931" glyphName="CLOSE" size="25" />
+					</graphic>
+					<HBox.margin>
+						<Insets right="10.0" />
+					</HBox.margin>
+				</JFXButton>
+			</children>
+		</HBox>
+	</children>
+</AnchorPane>

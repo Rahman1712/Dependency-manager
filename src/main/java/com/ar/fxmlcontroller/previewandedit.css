@@ -1,0 +1,32 @@
+
+.mainFxmlClass {
+-fx-background-color: linear-gradient(to bottom,derive(black,15%),derive(black,15%));
+-fx-text-fill: red;
+}
+
+/*.jfx-text-field{
+    -jfx-unfocus-color:yellow;
+    -jfx-focus-color:red;
+}*/
+
+.text-area{
+    -fx-control-inner-background:black;
+    -fx-background-color: black;
+    -fx-border-color: grey;
+     -fx-text-fill: #edff00;
+     -fx-font-size: 15px;
+}
+
+.combo-box{
+    -fx-background-color: black;
+    -fx-border-color: grey;
+    -fx-prompt-text-fill: derive(red,60%);
+}
+.combo-box .arrow{
+    -fx-background-color: white;
+}
+.combo-box .cell{
+    -fx-text-fill: white;
+    -fx-font:16px "Arial";
+    -fx-background-color: black;
+}

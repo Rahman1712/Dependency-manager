@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" stylesheets="@depedencyfxml.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ar.fxmlcontroller.FXMLController">
+	<center>
+		<TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+			<tabs>
+				<Tab text="show dependencies">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+							<children>
+								<Label layoutX="10.0" layoutY="16.0" prefHeight="17.0" prefWidth="179.0" style="-fx-text-fill: white;" text="Dependencies:-" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="16.0" />
+								<TableView fx:id="table" layoutX="14.0" layoutY="41.0" prefHeight="331.0" prefWidth="617.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+									<columns>
+										<TableColumn fx:id="colDependency" prefWidth="75.0" text="Dependency" />
+										<TableColumn fx:id="colGroupId" prefWidth="75.0" text="groupId" />
+										<TableColumn fx:id="colArtifactId" prefWidth="75.0" text="artifactId" />
+										<TableColumn fx:id="colVersion" prefWidth="75.0" text="version" />
+										<TableColumn fx:id="colScope" prefWidth="75.0" text="scope" />
+										<TableColumn fx:id="colOptional" prefWidth="75.0" text="optional" />
+										<TableColumn fx:id="colDescription" prefWidth="200.0" text="description" />
+									</columns>
+									<contextMenu>
+										<ContextMenu>
+											<items>
+												<MenuItem mnemonicParsing="false" onAction="#copyAction" text="copy" />
+												<MenuItem mnemonicParsing="false" onAction="#previewAction" text="preview" />
+												<MenuItem mnemonicParsing="false" onAction="#editAction" text="edit" />
+												<MenuItem mnemonicParsing="false" onAction="#deleteAction" text="delete" />
+											</items>
+										</ContextMenu>
+									</contextMenu>
+								</TableView>
+								<HBox alignment="TOP_RIGHT" layoutX="148.0" layoutY="9.0" prefHeight="33.0" prefWidth="550.0" AnchorPane.rightAnchor="20.0">
+									<children>
+                              <Button fx:id="buttonJAVAPluginsFolder" mnemonicParsing="false" onAction="#JAVAPluginsFolderAction" prefHeight="32.0" prefWidth="10.0" style="-fx-background-radius: 0;">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="FOLDER" />
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="buttonDownloadFolderOpen" mnemonicParsing="false" onAction="#downloadJARFolderAction" prefHeight="32.0" prefWidth="10.0" style="-fx-background-radius: 0;">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="DOWNLOAD" />
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </Button>
+										<Button fx:id="allTableButton" mnemonicParsing="false" onAction="#allDataAction" prefHeight="32.0" prefWidth="10.0" style="-fx-background-radius: 0;">
+											<font>
+												<Font name="System Bold" size="15.0" />
+											</font>
+											<graphic>
+												<FontAwesomeIconView glyphName="TABLE" />
+											</graphic>
+											<HBox.margin>
+												<Insets right="2.0" />
+											</HBox.margin>
+										</Button>
+										<Button mnemonicParsing="false" onAction="#searchDataAction" prefHeight="32.0" prefWidth="10.0" style="-fx-background-radius: 0;">
+											<font>
+												<Font name="System Bold" size="15.0" />
+											</font>
+											<graphic>
+												<FontAwesomeIconView glyphName="SEARCH" />
+											</graphic>
+										</Button>
+										<TextField fx:id="tfSearch" prefHeight="30.0" prefWidth="400.0" promptText="search for dependencies" style="-fx-prompt-fill: grey; -fx-text-fill: white;" />
+									</children>
+								</HBox>
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab text="new dependency">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+							<children>
+								<HBox layoutX="10.0" layoutY="15.0" prefHeight="30.0" prefWidth="570.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<Label prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="Dependency:" />
+										<TextField fx:id="tfDependency" prefHeight="30.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+									</children>
+								</HBox>
+								<HBox layoutX="10.0" layoutY="60.0" prefHeight="30.0" prefWidth="570.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<Label prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="groupId:" />
+										<TextField fx:id="tfGroupId" prefHeight="30.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+									</children>
+								</HBox>
+								<HBox layoutX="10.0" layoutY="105.0" prefHeight="30.0" prefWidth="570.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<Label prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="artifactId:" />
+										<TextField fx:id="tfArtifactId" prefHeight="30.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+									</children>
+								</HBox>
+								<HBox layoutX="10.0" layoutY="150.0" prefHeight="30.0" prefWidth="570.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<Label prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="version:" />
+										<TextField fx:id="tfVersion" prefHeight="30.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+									</children>
+								</HBox>
+								<HBox layoutX="10.0" layoutY="195.0" prefHeight="80.0" prefWidth="570.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<Label prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="description:" />
+										<TextArea fx:id="taDescription" prefHeight="200.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+									</children>
+								</HBox>
+								<HBox layoutX="10.0" layoutY="300.0" prefHeight="30.0" prefWidth="570.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<Label prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="scope:" />
+										<ComboBox fx:id="comboScope" prefHeight="30.0" prefWidth="150.0" />
+										<JFXButton fx:id="scopeClear" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#scopeClearAction" prefHeight="35.0" prefWidth="25.0" text="">
+											<graphic>
+												<FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="15" />
+											</graphic>
+										</JFXButton>
+										<Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" style="-fx-text-fill: white;" text="optional:    " />
+										<ComboBox fx:id="comboOptional" prefHeight="30.0" prefWidth="150.0" />
+										<JFXButton fx:id="optionalClear" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#optionalClearAction" prefHeight="35.0" prefWidth="25.0" text="">
+											<graphic>
+												<FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="15" />
+											</graphic>
+										</JFXButton>
+									</children>
+								</HBox>
+								<HBox alignment="CENTER" layoutX="50.0" layoutY="376.0" prefHeight="39.0" prefWidth="570.0" spacing="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<JFXButton onAction="#clearAction" prefHeight="50.0" prefWidth="100.0" text="clear">
+											<font>
+												<Font name="System Bold" size="18.0" />
+											</font>
+											<ripplerFill>
+												<RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+													<stops>
+														<Stop color="#b8342a" />
+														<Stop color="#b8342a" offset="0.007662835249042145" />
+														<Stop color="#aa22e3" offset="1.0" />
+													</stops>
+												</RadialGradient>
+											</ripplerFill>
+										</JFXButton>
+										<JFXButton onAction="#saveAction" prefHeight="50.0" prefWidth="100.0" text="save">
+											<font>
+												<Font name="System Bold" size="18.0" />
+											</font>
+											<ripplerFill>
+												<RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+													<stops>
+														<Stop color="#b82a30" />
+														<Stop color="#b82a30" offset="0.007662835249042145" />
+														<Stop color="#86e322" offset="1.0" />
+													</stops>
+												</RadialGradient>
+											</ripplerFill>
+										</JFXButton>
+									</children>
+								</HBox>
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab text="insert dependency">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@depedencyfxml.css">
+							<children>
+								<HBox layoutX="20.0" layoutY="46.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<TextArea fx:id="textInsertDependency" prefHeight="153.0" prefWidth="593.0" styleClass="text-area-patemode" stylesheets="@dependencyfxml.css" HBox.hgrow="ALWAYS" />
+										<JFXButton contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#forrwardAction" prefHeight="153.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(black,grey,black); -fx-border-color: grey;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#faffd7" glyphName="FORWARD" size="30" />
+											</graphic>
+											<ripplerFill>
+												<RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+													<stops>
+														<Stop color="BLACK" />
+														<Stop color="#99ff00" offset="0.6723940435280642" />
+														<Stop color="WHITE" offset="1.0" />
+													</stops>
+												</RadialGradient>
+											</ripplerFill>
+										</JFXButton>
+									</children>
+								</HBox>
+								<Label layoutX="29.0" layoutY="17.0" prefHeight="21.0" prefWidth="252.0" text="Dependency Copy and Paste here :-" textFill="#dbbaba">
+									<font>
+										<Font name="Gill Sans MT Condensed" size="15.0" />
+									</font>
+								</Label>
+								<HBox alignment="CENTER" layoutX="20.0" layoutY="395.0" prefHeight="39.0" prefWidth="578.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<JFXButton onAction="#clearInsertAction" prefHeight="50.0" prefWidth="100.0" text="clear">
+											<font>
+												<Font name="System Bold" size="18.0" />
+											</font>
+											<ripplerFill>
+												<RadialGradient centerX="0.5" centerY="0.4555555434454055" radius="0.5">
+													<stops>
+														<Stop color="#e00264" />
+														<Stop color="#e00264" offset="0.2094508301404853" />
+														<Stop color="#a84026" offset="0.418098510882016" />
+														<Stop color="#c91806" offset="0.6105383734249711" />
+														<Stop color="RED" offset="0.9386973180076624" />
+														<Stop color="RED" offset="1.0" />
+													</stops>
+												</RadialGradient>
+											</ripplerFill>
+										</JFXButton>
+										<JFXButton onAction="#saveInsertAction" prefHeight="50.0" prefWidth="100.0" text="save">
+											<font>
+												<Font name="System Bold" size="18.0" />
+											</font>
+											<ripplerFill>
+												<RadialGradient centerX="0.5" centerY="0.4555555434454055" radius="0.5">
+													<stops>
+														<Stop color="#01f8f0" />
+														<Stop color="#01f8f0" offset="0.2094508301404853" />
+														<Stop color="#26a62d" offset="0.4180985108820158" />
+														<Stop color="#3dc908" offset="0.6105383734249711" />
+														<Stop color="#00ffb8" offset="0.9386973180076622" />
+														<Stop color="#00ffb8" offset="1.0" />
+													</stops>
+												</RadialGradient>
+											</ripplerFill>
+										</JFXButton>
+									</children>
+								</HBox>
+								<VBox layoutX="20.0" layoutY="203.0" spacing="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+									<children>
+										<HBox>
+											<children>
+												<Label prefHeight="32.0" prefWidth="155.0" text="Enter Dependency Name:" textFill="#fbefef">
+													<font>
+														<Font name="System Bold" size="13.0" />
+													</font>
+												</Label>
+												<TextField fx:id="tfInsertName" minHeight="-Infinity" prefHeight="32.0" prefWidth="450.0" styleClass="text-field-insertname" stylesheets="@dependencyfxml.css" HBox.hgrow="ALWAYS" />
+											</children>
+										</HBox>
+										<HBox>
+											<children>
+												<Label prefHeight="25.0" prefWidth="58.0" text="GroupId:" textFill="#ae9c9c" />
+												<TextField fx:id="tfGIDInsert" editable="false" minHeight="-Infinity" prefHeight="25.0" prefWidth="450.0" styleClass="text-field-insertmode" stylesheets="@dependencyfxml.css" HBox.hgrow="ALWAYS">
+													<HBox.margin>
+														<Insets left="96.5" />
+													</HBox.margin>
+												</TextField>
+											</children>
+										</HBox>
+										<HBox>
+											<children>
+												<Label prefHeight="25.0" prefWidth="58.0" text="ArtifactId:" textFill="#ae9c9c" />
+												<TextField fx:id="tfAIDInsert" editable="false" minHeight="-Infinity" prefHeight="25.0" prefWidth="450.0" styleClass="text-field-insertmode" stylesheets="@dependencyfxml.css" HBox.hgrow="ALWAYS">
+													<HBox.margin>
+														<Insets left="97.0" />
+													</HBox.margin>
+												</TextField>
+											</children>
+										</HBox>
+										<HBox>
+											<children>
+												<Label prefHeight="48.0" prefWidth="69.0" text="Description:" textFill="#ae9c9c" />
+												<TextArea fx:id="taDescriptionInsert" editable="false" prefHeight="48.0" prefWidth="450.0" styleClass="text-area-insertmode" stylesheets="@dependencyfxml.css" HBox.hgrow="ALWAYS">
+													<HBox.margin>
+														<Insets left="86.0" />
+													</HBox.margin>
+												</TextArea>
+											</children>
+										</HBox>
+										<HBox>
+											<children>
+												<Label prefHeight="25.0" prefWidth="52.0" text="Version:" textFill="#ae9c9c" />
+												<TextField fx:id="tfVersionInsert" editable="false" minHeight="-Infinity" prefHeight="25.0" prefWidth="118.0" styleClass="text-field-insertmode" stylesheets="@dependencyfxml.css" />
+												<Label prefHeight="25.0" prefWidth="40.0" text="Scope:" textFill="#ae9c9c">
+													<HBox.margin>
+														<Insets left="45.0" />
+													</HBox.margin>
+												</Label>
+												<TextField fx:id="tfScopeInsert" editable="false" minHeight="-Infinity" prefHeight="25.0" prefWidth="118.0" styleClass="text-field-insertmode" stylesheets="@dependencyfxml.css" />
+												<Label prefHeight="25.0" prefWidth="57.0" text="Optional:" textFill="#ae9c9c">
+													<HBox.margin>
+														<Insets left="50.0" />
+													</HBox.margin>
+												</Label>
+												<TextField fx:id="tfOptionalInsert" editable="false" minHeight="-Infinity" prefHeight="25.0" prefWidth="118.0" styleClass="text-field-insertmode" stylesheets="@dependencyfxml.css" />
+											</children>
+										</HBox>
+									</children>
+								</VBox>
+								<JFXButton layoutX="560.0" layoutY="8.0" onAction="#copyFromClipboardAction" prefHeight="34.0" prefWidth="70.0" text="" AnchorPane.rightAnchor="20.0">
+									<graphic>
+										<FontAwesomeIconView glyphName="PASTE" size="20" />
+									</graphic>
+									<ripplerFill>
+										<RadialGradient centerX="0.5" centerY="0.4555555434454055" radius="0.5">
+											<stops>
+												<Stop color="#b9e202" />
+												<Stop color="#b9e202" offset="0.2094508301404853" />
+												<Stop color="#404a12" offset="0.40357598978288617" />
+												<Stop color="#0cb9fd" offset="0.47995418098510884" />
+												<Stop color="#a7cc04" offset="0.6105383734249711" />
+												<Stop color="#00ccff" offset="0.9386973180076627" />
+												<Stop color="#00ccff" offset="1.0" />
+											</stops>
+										</RadialGradient>
+									</ripplerFill>
+								</JFXButton>
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab text="maven website">
+					<content>
+						<BorderPane>
+							<center>
+								<TabPane fx:id="tabPaneBrowser" styleClass="tab-pane_browser" stylesheets="@depedencyfxml.css">
+									<tabs>
+										<Tab fx:id="firstTab" text="tab1">
+											<content>
+												<WebView fx:id="webWEB" prefHeight="200.0" prefWidth="200.0" />
+											</content>
+										</Tab>
+
+									</tabs>
+								</TabPane>
+							</center>
+							<top>
+								<HBox prefHeight="40.0" prefWidth="600.0" spacing="5.0" BorderPane.alignment="CENTER">
+									<children>
+										<JFXButton fx:id="newBrowserTab" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#newTabForBrowserAction" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#530909" glyphName="PLUS" size="20" />
+											</graphic>
+											<HBox.margin>
+												<Insets left="5.0" top="2.0" />
+											</HBox.margin>
+										</JFXButton>
+										<JFXButton fx:id="backToWEB" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#backToWEBAction" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#530909" glyphName="ARROW_LEFT" size="20" />
+											</graphic>
+											<HBox.margin>
+												<Insets top="2.0" />
+											</HBox.margin>
+										</JFXButton>
+										<JFXButton fx:id="forwardToWEB" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#forwardToWEBAction" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#530909" glyphName="ARROW_RIGHT" size="20" />
+											</graphic>
+											<HBox.margin>
+												<Insets top="2.0" />
+											</HBox.margin>
+										</JFXButton>
+										<JFXButton fx:id="refreshWEB" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#refreshWEBAction" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#530909" glyphName="REFRESH" size="20" />
+											</graphic>
+											<HBox.margin>
+												<Insets top="2.0" />
+											</HBox.margin>
+										</JFXButton>
+										<TextField fx:id="addressBarWEBTF" onAction="#searchTextFieldWEBAction" prefHeight="33.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
+											<HBox.margin>
+												<Insets top="2.0" />
+											</HBox.margin>
+										</TextField>
+										<JFXButton fx:id="searchWEB" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchWEBAction" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#530909" glyphName="SEARCH" size="20" />
+											</graphic>
+											<HBox.margin>
+												<Insets top="2.0" />
+											</HBox.margin>
+										</JFXButton>
+										<JFXButton contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#historyWEBAction" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="">
+											<graphic>
+												<FontAwesomeIconView fill="#530909" glyphName="HISTORY" size="20" />
+											</graphic>
+											<HBox.margin>
+												<Insets top="2.0" />
+											</HBox.margin>
+										</JFXButton>
+                              <Button fx:id="buttonFolder" mnemonicParsing="false" prefHeight="32.0" prefWidth="40.0" style="-fx-background-radius: 50; -fx-border-radius: 50;">
+                                 <graphic>
+                                    <CheckBox fx:id="folderOpenCheckBox" mnemonicParsing="false">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="FOLDER_OPEN" />
+                                       </graphic>
+                                    </CheckBox>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="2.0" />
+                                 </HBox.margin>
+                              </Button>
+									</children>
+								</HBox>
+							</top>
+							<bottom>
+								<HBox fx:id="hboxProgress" alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(derive(black,50%),darkgrey,grey,derive(black,50%));" BorderPane.alignment="CENTER" />
+							</bottom>
+						</BorderPane>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+	</center>
+	<top>
+		<HBox alignment="CENTER" prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+			<children>
+				<Label style="-fx-text-fill: white;" text="DEPENDENCIES">
+					<font>
+						<Font name="Book Antiqua" size="18.0" />
+					</font>
+				</Label>
+			</children>
+		</HBox>
+	</top>
+</BorderPane>
